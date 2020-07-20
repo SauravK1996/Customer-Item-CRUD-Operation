@@ -1,0 +1,96 @@
+﻿<br />
+<div>
+    <div class="row">
+        <div class="col-6">
+            <h2 class="text-primary">Sales Order</h2>
+        </div>
+        <div class="col-6 text-right">
+            <a class="btn btn-primary text-white js-create-customer"><i class="fas fa-plus"></i> &nbsp; Add</a>
+        </div>
+    </div>
+    <br />
+    <br />
+    <div style="background-color:#cde8e2" class="p-3 rounded">
+        <table id="tblData" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+                <tr class="table-danger">
+                    <th class="src">Sales Order</th>
+                    <th class="src">Customer</th>
+                    <th class="src">Order Date</th>
+                    <th class="src">Amount</th>
+                    <th style="text-align:center;"></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+<div id="modalAddItemToCustomer" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title"></h2>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div class="modal-body" id="itemUpdateModel">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form method="post" asp-action="CreateCustomer" asp-controller="SalesOrder">
+
+                            <div class="form-group">
+                                <label>Select Customer</label>
+                                <select class="form-control" name="custId" id="custId">
+                                    <option value="1">Nicole Woods</option>
+                                    <option value="2">Richard Beck</option>
+                                    <option value="3">Justin Grant</option>
+                                    <option value="4">Lisa Weber</option>
+                                    <option value="5">Lauren Hoffman</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Select Items</label>
+                            </div>
+                                <div class="form-check">
+
+                                    <input type="checkbox" class="form-check-input" name="ItemIdList" value="1" id="1">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <label class="form-check-label" for="1">Web Hosting</label>
+                                    <br>
+
+                                    <input type="checkbox" class="form-check-input" name="ItemIdList"  value="2" id="2">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <label class="form-check-label" for="2">Web Designing</label>
+                                    <br>
+
+                                    <input type="checkbox" class="form-check-input" name="ItemIdList" value="3" id="3">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <label class="form-check-label" for="3">Web Content</label>
+                                    <br>
+
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <button type="button" class="btn btn-danger pull-right" data-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-success pull-right js-update-item-rate">Save </button>
+                                    </div>
+                                </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/js/salesOrder.js"></script>
+    <script src="~/js/createCustomer.js"></script>
+}
